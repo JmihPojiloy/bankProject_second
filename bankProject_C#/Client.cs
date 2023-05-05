@@ -24,6 +24,8 @@ namespace bankProject_C_
 
         public List<Account>? Accounts { get { return accounts; } }
 
+        public Client() { }
+
         public Client(int id, string name, decimal balance)
         {
             this.id = id;

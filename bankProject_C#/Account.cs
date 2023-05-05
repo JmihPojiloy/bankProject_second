@@ -30,7 +30,7 @@ namespace bankProject_C_
         {
             if(this.balance - amount < 0)
             {
-                throw new Exception();
+                throw new Exception("Not enought money!");
             }
             this.balance -= amount;
         }
@@ -67,7 +67,7 @@ namespace bankProject_C_
         {
             if((this.balance+this.credit)-amount < 0)
             {
-                throw new Exception();
+                throw new Exception("Not enought money!");
             }
             if(amount > this.balance)
             {
