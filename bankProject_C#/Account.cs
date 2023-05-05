@@ -34,6 +34,13 @@ namespace bankProject_C_
             }
             this.balance -= amount;
         }
+
+        public static Account operator+(Account a, Account b)
+        {
+            a.balance += b.balance;
+            b.balance = 0;
+            return a;
+        }
     }
 
     public class SimpleAcc : Account

@@ -8,6 +8,6 @@ namespace bankProject_C_
 {
     public interface IInfo
     {
-        void Info();
+        string Info();
     }
 }
