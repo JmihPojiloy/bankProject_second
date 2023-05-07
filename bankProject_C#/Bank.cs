@@ -31,20 +31,26 @@ namespace bankProject_C_
             return clients;
         }
 
-        public void Add(string name, decimal sum)
+        public string Add(string name, decimal sum)
         {
             clients.Add(new Client(this.clients.Count, name, sum));
+            return "\nNew client added!";
         }
 
-        public void Remove(int id)
+        public string Remove(int id)
         {
+            string? name = null;
             foreach (var item in this.clients)
             {
                 if(item.Id == id)
                 {
+                    name = item.Info();
                     clients.Remove(item);
+                    break;
                 }
             }
+
+            return $"\nClient {name} was deleted!";
         }
 
         public string Transactions(int id, decimal sum, int operation, char type)
@@ -77,7 +83,7 @@ namespace bankProject_C_
             }
             catch(Exception ex) 
             { 
-                return ex.Message;
+                return ex.Message.ToString();
             }
 
             return "Transaction done!";
@@ -93,6 +99,21 @@ namespace bankProject_C_
             }
 
             return info;
+        }
+
+        public string ClientInfo(int id)
+        {
+            string? client = null;
+
+            foreach (var item in this.clients)
+            {
+                if(item.Id == id)
+                {
+                    client = item.Info();
+                }
+            }
+
+            return client;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace bankProject_C_
 
         private List<Account>? accounts;
 
-        public int Id { get; set; }
+        public int Id { get { return id; } }
 
         public string? Name { get { return name; } }
 
@@ -73,9 +73,9 @@ namespace bankProject_C_
 
         public string Info()
         {
-            string info = $"ID {this.id}" +
-                          $"Name {this.name}" +
-                          $"Surname {this.surname}" +
+            string info = $"ID {this.id} " +
+                          $"Name {this.name} " +
+                          $"Surname {this.surname} " +
                           $"\nAccounts:";
 
             foreach(var acc in this.accounts)
