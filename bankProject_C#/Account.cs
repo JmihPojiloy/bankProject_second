@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+    Абстрактный класс счет, имеет функции пополнения и снятия
+    денег. При попытке снять больше чем имеется на счете кидает ошибку
+    Также имеет перегрузку оператора '+'
+*/
+
 namespace bankProject_C_
 {
     public abstract class Account
@@ -35,6 +41,7 @@ namespace bankProject_C_
             this.balance -= amount;
         }
 
+        // перегрузка оператора '+' реализует перевод денег между счетами
         public static Account operator+(Account a, Account b)
         {
             a.balance += b.balance;
@@ -63,11 +70,13 @@ namespace bankProject_C_
             this.credit = credit;
         }
 
+        // переписанная виртуальная функция снятия денег, которая проверяет
+        // так же кредитнй лимит
         public override void Withdraw(decimal amount)
         {
             if((this.balance+this.credit)-amount < 0)
             {
-                throw new Exception("Not enought money!");
+                throw new Exception("Not enought credit!");
             }
             if(amount > this.balance)
             {

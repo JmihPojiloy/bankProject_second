@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+    Класс клиент реализует работу со счетамию При вызове конструктора
+    вызывает функцию начальной настройки. Наследует интерфейс и реализует
+    его функцию показа информации.
+ */
+
 namespace bankProject_C_
 {
     public class Client : IInfo
@@ -39,8 +45,8 @@ namespace bankProject_C_
             this.surname = words[1];
 
             this.accounts = new List<Account>();
-            accounts.Add(new SimpleAcc(balance));
-            accounts.Add(new CreditAcc(balance, 200m));
+            this.accounts.Add(new SimpleAcc(balance));
+            this.accounts.Add(new CreditAcc(balance, 200m));
         }
 
         public void Deposit(decimal amount)

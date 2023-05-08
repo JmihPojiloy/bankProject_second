@@ -9,10 +9,11 @@ do
 
     Console.WriteLine($"\n1 - Add\n2 - Delete\n3 - Select");
 
-    int choice = 0;
+    int choice;
     int.TryParse(Console.ReadLine(), out choice);
     int id = 3;
 
+    // если не "добавление клиента" то выбор его id
     if(choice != 1)
     {
         Console.WriteLine("Input client`s id");
@@ -22,6 +23,7 @@ do
     switch(choice)
     {
         case 1:
+            // добавление клиента 
             Console.WriteLine("Enter name and balance");
             string? name = Console.ReadLine();
             decimal balance;
@@ -31,12 +33,13 @@ do
             break;
 
         case 2:
-            
+            // удаление клиента
             Console.WriteLine(bank.Remove(id));
             break;
 
         case 3:
-            char c = 'n';
+            // работа с выбранным клиентом - операции с деньгами
+            char c;
             int operation;
             decimal sum = 0;
             do
@@ -55,6 +58,7 @@ do
                     decimal.TryParse(Console.ReadLine(), out sum);
                 }
 
+                // операции с деньгами, в зависимости от выбранного модификатора
                 switch(operation)
                 {
                     case 1:
